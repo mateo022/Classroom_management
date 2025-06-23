@@ -52,6 +52,12 @@ async function listarAulas() {
         <td>${aula.nombre}</td>
         <td>${aula.asignatura?.nombre || 'N/A'}</td>
         <td>${aula.ubicacion?.nombre || 'N/A'}</td>
+         <td>${aula.capacidad_foro}</td>
+        <td>
+          ${aula.codigo_qr 
+            ? `<img src="/qrs/${aula.codigo_qr}" alt="QR ${aula.nombre}" width="80">` 
+            : 'Sin QR'}
+        </td>
         <td>
           <button onclick="editarAula(${aula.id_aula}, '${aula.nombre}', '${aula.id_asignatura}', '${aula.id_ubicacion}')">Editar</button>
           <button onclick="eliminarAula(${aula.id_aula})">Eliminar</button>
