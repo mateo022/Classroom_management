@@ -59,7 +59,7 @@ async function listarAulas() {
             : 'Sin QR'}
         </td>
         <td>
-          <button onclick="editarAula(${aula.id_aula}, '${aula.nombre}', '${aula.id_asignatura}', '${aula.id_ubicacion}')">Editar</button>
+          <button onclick="editarAula(${aula.id_aula}, '${aula.nombre}', '${aula.id_asignatura}', '${aula.id_ubicacion}', '${aula.capacidad_foro}')">Editar</button>
           <button onclick="eliminarAula(${aula.id_aula})">Eliminar</button>
         </td>
       `;
@@ -71,11 +71,12 @@ async function listarAulas() {
 }
 
 
-function editarAula(id, nombre, id_asignatura, id_ubicacion) {
+function editarAula(id, nombre, id_asignatura, id_ubicacion,capacidad_foro) {
   document.getElementById('id_aula').value = id;
   document.getElementById('nombre').value = nombre;
   document.getElementById('id_asignatura').value = id_asignatura;
   document.getElementById('id_ubicacion').value = id_ubicacion;
+  document.getElementById('capacidad_foro').value = capacidad_foro;
   document.getElementById('formTitle').textContent = 'Editar Aula';
 }
 
@@ -108,6 +109,7 @@ async function cargarAsignaturas() {
       const option = document.createElement('option');
       option.value = asignatura.id_asignatura;
       option.textContent = asignatura.nombre;
+      
       select.appendChild(option);
     });
   } catch (error) {
